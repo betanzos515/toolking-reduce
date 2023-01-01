@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './store/slices/counter/counterSlice';
+import { increment, decrement, incrementBy } from './store/slices/counter/counterSlice';
 
 import { useState } from 'react';
 function App() {  
@@ -39,7 +39,11 @@ function App() {
         </button>
       </div>
       <div className="card">
-        <button onClick={() =>{ dispatch( increment() ) }}>
+        <button onClick={
+          () =>{ 
+          dispatch( incrementBy(state));
+          setState('');
+        }}>
           Increment By
         </button>
         <input 
